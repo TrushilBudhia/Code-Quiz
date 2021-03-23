@@ -1,0 +1,27 @@
+:root {
+    --blue-gray: #3b4954;
+}
+
+/* Universal styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Element styling */
+
+
+
+/* Header styling */ 
+
+
+
+/* Main section styling */
+
+.quiz-intro h2, p {
+    margin-bottom: 20px;
+}
+
+
+
+  
