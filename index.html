@@ -14,21 +14,31 @@
     <!-- HEADER SECTION END -->   
     <!-- MAIN SECTION START -->   
     <main>
-        <section class="information">
-            <article class="high-score">
-                <h4><a href="#">View Highscores</a></h4>
-            </article>
+      <section class="information">
+        <article class="high-score">
+          <h4><a href="#">View Highscores</a></h4>
+        </article>
 
-            <article class="timer">
-                <h4 class="timer-text">Time: <span class="large-font timer-count">0</span></h4>
-            </article>
-        </section>
+        <article class="timer">
+          <h4 class="timer-text">Time: <span class="large-font timer-count">100</span></h4>
+        </article>
+      </section>
 
-        <section class="quiz-intro">
-            <h2 class="large-font">Coding Quiz Challenge</h2>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize our score which is the time remaining by ten seconds!</p>
-            <button class="start-button">Start</button>
-        </section>
+      <section class="quiz-intro">
+        <h2 class="large-font">Coding Quiz Challenge</h2>
+        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize our score which is the time remaining by ten seconds!</p>
+        <button id="start-button">Start</button>
+      </section>
+
+      <section id="quiz-container">
+        <article id="quiz"></article>
+      </section>
+      <section id="button-navigation">
+        <button id="previous">Previous Question</button>
+        <button id="next">Next Question</button>
+        <button id="submit">Submit Quiz</button>
+      </section>
+      <section id="results"></section>
     </main>
     <!-- MAIN SECTION END -->  
     <script src="assets/js/script.js"></script>
