@@ -66,6 +66,10 @@ body{
 	background-color: #38a38a;
 }
 
+#results {
+    text-align: center;
+}
+
 .slide{
     left: 0px;
     opacity: 0;
