@@ -4,44 +4,85 @@
     <title>Code Quiz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- Inside a subdirectory called css, which is in a subdirectory called assets, inside the current directory -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
   <body>
-    <!-- HEADER SECTION START -->
-    <header>
-      <h1 class="large-font">Coding Quiz</h1>
-    </header>
-    <!-- HEADER SECTION END -->   
-    <!-- MAIN SECTION START -->   
-    <main>
-      <section class="information">
-        <article class="high-score">
-          <h4><a href="#">View Highscores</a></h4>
-        </article>
+    <!-- VIEW HIGHSCORE SECTION START -->
+    <section class="view-highscores">
+      <button id="view-highscores-btn">View Highscores</button>
+    </section>
+    <!-- VIEW HIGHSCORE SECTION END -->
 
-        <article class="timer">
-          <h4 class="timer-text">Time: <span class="large-font timer-count">100</span></h4>
-        </article>
-      </section>
-
-      <section class="quiz-intro">
+    <!-- INSTRUCTION SECTION START -->
+    <section id="instructions">
         <h2 class="large-font">Coding Quiz Challenge</h2>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize our score which is the time remaining by ten seconds!</p>
-        <button id="start-button">Start</button>
-      </section>
+    </section>
+    <!-- INSTRUCTION SECTION END -->
 
-      <section id="quiz-container">
-        <article id="quiz"></article>
-      </section>
-      <section id="button-navigation">
-        <button id="previous">Previous Question</button>
-        <button id="next">Next Question</button>
-        <button id="submit">Submit Quiz</button>
-      </section>
-      <section id="results"></section>
+    <!-- START QUIZ BUTTON -->
+    <div class="start-button"><button>Start Quiz</button></div>
+
+    <!-- MAIN SECTION START -->   
+    <main class="quiz-box">
+        <header>
+            <div class="title">Coding Quiz Challenge</div>
+            <div class="timer">
+                <div class="time-left-text">Time Left</div>
+                <div class="timer-value">100</div>
+            </div>
+        </header>
+        <section>
+            <div class="question-text">
+                <!-- Inserted the quiz questions from JavaScript -->
+            </div>
+            <div class="answer-option-list">
+                <!-- Inserted the answer options from JavaScript -->
+            </div>
+        </section>
+        <footer>
+            <div class="question-count">
+                <!-- Inserted the question count number from JavaScript -->
+            </div>
+            <button class="next-button">Next</button>
+        </footer>
     </main>
-    <!-- MAIN SECTION END -->  
+    <!-- MAIN SECTION END -->   
+
+    <!-- RESULT BOX SECTION START -->
+    <section class="result-box">
+        <div class="icon">
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="complete-quiz-text">You've completed the Quiz!</div>
+        <div class="answer-score-text">
+            <!-- Inserted the score result from JavaScript -->
+        </div>
+        <form id="highscore-form" method="POST">
+            <label for="highscore-text">Enter initials: </label>
+            <input type="text" placeholder="Initials" name="highscore-text" id="highscore-text" /><br>
+            <button class="submit">Submit Score</button>
+        </form>
+    </section>
+    <!-- RESULT BOX SECTION END -->
+    
+    <!-- HIGHSCORE BOX SECTION START -->
+    <section class="highscore-box">
+        <h3>HIGHSCORES</h3>
+        <ul id="highscore-list">
+            <!-- Inserted the high score list from JavaScript -->
+        </ul>
+        <article class="buttons">
+            <button class="clear-highscore">Clear Highscores</button>
+            <button class="restart">Go back</button>
+        </article>
+    </section>
+    <!-- HIGHSCORE BOX SECTION END -->
+
+    <!-- Code Quiz script file - inside a subdirectory called js, which is in a subdirectory called assets, inside the current directory -->
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/design.js"></script>
   </body>
 </html>
