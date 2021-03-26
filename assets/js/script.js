@@ -57,7 +57,7 @@ var questions = [
   },
     {
     numb: 3,
-    question: 'Which of the following is the correct way to start a FOR loop statement?',
+    question: 'Which is the correct way to start a FOR loop statement?',
     answer: 'for (i = 0, i <= 7; i++)',
     options: [
         'for i = 1 to 7',
@@ -68,7 +68,7 @@ var questions = [
   },
     {
     numb: 4,
-    question: 'Which one of the below reflects the correct way to write a JavaScript array?',
+    question: 'Which is the correct way to write a JavaScript array?',
     answer: 'var colours = ["Red", "Orange", "Yellow"]',
     options: [
         'var colours = ["Red", "Orange", "Yellow"]',
