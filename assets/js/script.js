@@ -69,12 +69,12 @@ var questions = [
     {
     numb: 4,
     question: 'Which is the correct way to write a JavaScript array?',
-    answer: 'var colours = ["Red", "Orange", "Yellow"]',
+    answer: 'var letters = ["A", "B", "C"]',
     options: [
-        'var colours = ["Red", "Orange", "Yellow"]',
-        'var colours = "Red", "Orange", "Yellow"',
-        'var colours = (1:"Red", 2:"Orange", 3:"Yellow")',
-        'var colours = 1 = ("Red"), 2 = ("Orange"), 3 = ("Yellow")'
+        'var letters = ["A", "B", "C"]',
+        'var letters = "A", "B", "C"',
+        'letters = (1:"A", 2:"B", 3:"C")',
+        'var letters = 1="A", 2="B", 3="C"'
     ]
   },
     {
