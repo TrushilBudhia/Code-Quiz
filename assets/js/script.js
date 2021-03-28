@@ -93,14 +93,14 @@ var questions = [
 // FUNCTIONS
 // Rending the highscores list on the page
 function renderHighscores() {
+    highscoresSort = highscores.sort().reverse();
     highscoreList.innerHTML = "";
-    for (var i = 0; i < highscores.length; i++) {
-        var highscore = highscores[i];
-    
+    for (var i = 0; i < highscoresSort.length; i++) {
+        var highscore = highscoresSort[i];
         var listItem = document.createElement("li");
         listItem.textContent = highscore;
         listItem.setAttribute("data-index", i);
-    
+        listItem.setAttribute("style", "list-style-type: none;");
         highscoreList.appendChild(listItem);
     }
 }
@@ -258,7 +258,7 @@ nextButton.addEventListener("click", function() {
 // Submits the user score to the highscores list
 submitScore.addEventListener("click", function(event) {
     event.preventDefault();
-    var highscoreNameText = highscoreNameInput.value.trim() + " - " + timeCount.textContent;
+    var highscoreNameText = timeCount.textContent + " - " + highscoreNameInput.value.trim();
     // If no text is inputed in the highscoreNameText field, does not add list item to highscores
     if (highscoreNameInput.value == "") {
       return;
