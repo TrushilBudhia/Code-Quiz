@@ -143,7 +143,7 @@ function startTimer(time){
 }
 
 // Getting questions and options from array
-function showQuetions(index){
+function showQuestions(index){
     var questionText = document.querySelector(".question-text");
 
     // Creating a new span and div tag for question and answer options and passing the value using array index
@@ -187,9 +187,9 @@ function optionSelected(answer){
         }
     }
     for(i=0; i < allOptions; i++){
-        answerOptionList.children[i].classList.add("disabled"); // Once user select an option then disable all options
+        answerOptionList.children[i].classList.add("disabled"); // Disable all options after the user has selected an answer
     }
-    nextButton.classList.add("show"); //show the next button if user selected any option
+    nextButton.classList.add("show"); 
 }
 
 function questionCounter(index){
@@ -220,17 +220,18 @@ function showResult(){
 }
 
 // EVENT LISTENERS
-// If the Start button is clicked
+// Initiates the quiz
 startButton.addEventListener("click", function() {
     startButton.style.display = "none";
     instructionsSelect.style.display = "none";
     highscoreBox.classList.remove("activeResult");
     quizBox.classList.add("activeQuiz"); 
-    showQuetions(0); 
+    showQuestions(0); 
     questionCounter(1); 
     startTimer(timeValue); 
 });
 
+// Opens the highscores table
 viewHighscoresButtonSelect.addEventListener("click", function() {
     instructionsSelect.style.display = "none";
     // The information in the highscores array is stored to the local storage
@@ -240,21 +241,21 @@ viewHighscoresButtonSelect.addEventListener("click", function() {
     renderHighscores(); 
 });
 
-// If Next Question button clicked
+// Proceeds to the next step in the quiz
 nextButton.addEventListener("click", function() {
     if(questionCount < questions.length - 1){ 
         questionCount++; 
         questionNumber++; 
-        showQuetions(questionCount); 
+        showQuestions(questionCount); 
         questionCounter(questionNumber);
         isPaused = false;
-        timeText.textContent = "Time Left";
         nextButton.classList.remove("show"); 
     } else{
         showResult(); 
     }
 });
 
+// Submits the user score to the highscores list
 submitScore.addEventListener("click", function(event) {
     event.preventDefault();
     var highscoreNameText = highscoreNameInput.value.trim() + " - " + timeCount.textContent;
@@ -273,14 +274,15 @@ submitScore.addEventListener("click", function(event) {
     renderHighscores(); 
 });
 
+// Clears the highscore list
 clearHighscore.addEventListener("click", function() {
     highscoreList.innerHTML = "";
     localStorage.clear();
-    highscoreList.removeChild(highscoreList);
+    highscoreList.remove(highscoreList);
     renderHighscores(); 
 });
 
-// If restartQuizButton button clicked
+// Restarts the Quiz
 restartQuizButton.addEventListener("click", function() {
     window.location.reload(); 
 });

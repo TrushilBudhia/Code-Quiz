@@ -365,13 +365,13 @@ footer button.show {
 .highscore-box h3 {
     border-bottom: 1px solid #3d3d3d;
     padding: 0 0 0 10px;
+    margin-bottom: 20px;
     text-align: center;
     width: 100%;
 }
 
 #highscore-list {
     margin-bottom: 20px;
-    margin-top: 10px;
 }
 
 .highscore-box article {
