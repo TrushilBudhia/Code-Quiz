@@ -28,7 +28,7 @@ var userScore = 0;
 var counter;
 var widthValue = 0;
 var isPaused = false;
-var timeValue = 100;
+var timeValue = 75;
 var highscores = [];
 
 // Creating an array and passing the number, questions, options, and answers
@@ -94,17 +94,15 @@ var questions = [
 // Rending the highscores list on the page
 function renderHighscores() {
     highscoreList.innerHTML = "";
-    console.log(highscoreList);
     for (var i = 0; i < highscores.length; i++) {
         var highscore = highscores[i];
     
-        var li = document.createElement("li");
-        li.textContent = highscore;
-        li.setAttribute("data-index", i);
+        var listItem = document.createElement("li");
+        listItem.textContent = highscore;
+        listItem.setAttribute("data-index", i);
     
-        highscoreList.appendChild(li);
+        highscoreList.appendChild(listItem);
     }
-    console.log(highscoreList);
 }
 
 function storeHighscores() {
@@ -148,7 +146,7 @@ function startTimer(time){
 function showQuetions(index){
     var questionText = document.querySelector(".question-text");
 
-    // Creating a new span and div tag for question and option and passing the value using array index
+    // Creating a new span and div tag for question and answer options and passing the value using array index
     var questionTag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
     var optionTag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
@@ -168,26 +166,23 @@ function showQuetions(index){
 function optionSelected(answer){
     isPaused = true;
     var userAnswer = answer.textContent; 
-    var correcAnswer = questions[questionCount].answer; 
+    var correctAnswer = questions[questionCount].answer; 
     var allOptions = answerOptionList.children.length; 
     
-    if(userAnswer == correcAnswer){ 
+    if(userAnswer == correctAnswer){ 
         userScore += 1; 
         answer.classList.add("correct"); 
         answer.insertAdjacentHTML("beforeend", tickIconTag); 
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
-    }else{
+    } else{
         timeCount.textContent -= 10;
         answer.classList.add("incorrect"); 
         answer.insertAdjacentHTML("beforeend", crossIconTag); 
 
         // Auto highlighting the correct answer if the answer selected by the user is wrong
         for(i=0; i < allOptions; i++){
-            if(answerOptionList.children[i].textContent == correcAnswer){ 
+            if(answerOptionList.children[i].textContent == correctAnswer){ 
                 answerOptionList.children[i].setAttribute("class", "option correct"); 
                 answerOptionList.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                console.log("Auto selected correct answer.");
             }
         }
     }
@@ -255,7 +250,7 @@ nextButton.addEventListener("click", function() {
         isPaused = false;
         timeText.textContent = "Time Left";
         nextButton.classList.remove("show"); 
-    }else{
+    } else{
         showResult(); 
     }
 });
@@ -282,7 +277,6 @@ clearHighscore.addEventListener("click", function() {
     highscoreList.innerHTML = "";
     localStorage.clear();
     highscoreList.removeChild(highscoreList);
-    console.log(highscoreList);
     renderHighscores(); 
 });
 

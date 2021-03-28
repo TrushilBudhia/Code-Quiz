@@ -14,7 +14,7 @@ Code Quiz: https://trushilbudhia.github.io/Code-Quiz/
 
 ## Assets
 
-The following image shows the web application's appearance:
+The following images show the web application's appearance:
 
 ![The timed multiple choice code quiz on Javascript fundamentals. Click to the 'Start' button begin the quiz.](./assets/images/Code-Quiz-Preview-img1.png)
 
