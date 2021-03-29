@@ -126,6 +126,7 @@ function showHighscores(){
 }
 
 function startTimer(time){
+    var timeLeft;
     timeCount.textContent = time
     counter = setInterval(timer, 1000);
     function timer(){
