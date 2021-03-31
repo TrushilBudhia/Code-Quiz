@@ -29,6 +29,7 @@ var counter;
 var widthValue = 0;
 var isPaused = false;
 var timeValue = 75;
+var timePenalty = 10;
 var highscores = [];
 
 // Creating an array and passing the number, questions, options, and answers
@@ -93,10 +94,11 @@ var questions = [
 // FUNCTIONS
 // Rending the highscores list on the page
 function renderHighscores() {
-    highscoresSort = highscores.sort().reverse();
+    // Sorting the highscore scores from highest to lowest 
+    highscoresSort = highscores.sort((a, b) => b.score - a.score);
     highscoreList.innerHTML = "";
     for (var i = 0; i < highscoresSort.length; i++) {
-        var highscore = highscoresSort[i];
+        var highscore = highscoresSort[i].score + " - " + highscoresSort[i].initials;
         var listItem = document.createElement("li");
         listItem.textContent = highscore;
         listItem.setAttribute("data-index", i);
@@ -175,7 +177,7 @@ function optionSelected(answer){
         answer.classList.add("correct"); 
         answer.insertAdjacentHTML("beforeend", tickIconTag); 
     } else{
-        timeCount.textContent -= 10;
+        timeCount.textContent -= timePenalty;
         answer.classList.add("incorrect"); 
         answer.insertAdjacentHTML("beforeend", crossIconTag); 
 
@@ -259,13 +261,16 @@ nextButton.addEventListener("click", function() {
 // Submits the user score to the highscores list
 submitScore.addEventListener("click", function(event) {
     event.preventDefault();
-    var highscoreNameText = timeCount.textContent + " - " + highscoreNameInput.value.trim();
+    var highscoreNameObject = {
+        score: timeCount.textContent,
+        initials: highscoreNameInput.value.trim()
+    }
     // If no text is inputed in the highscoreNameText field, does not add list item to highscores
     if (highscoreNameInput.value == "") {
       return;
     }
     // The information inputed by the user is being pushed to the highscores array
-    highscores.push(highscoreNameText);
+    highscores.push(highscoreNameObject);
     highscoreNameInput.value = "";
    
     // The information in the highscores array is stored to the local storage
