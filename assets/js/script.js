@@ -205,7 +205,7 @@ function showResult(){
     quizBox.classList.remove("activeQuiz"); 
     resultBox.classList.add("activeResult");
     var scoreText = resultBox.querySelector(".answer-score-text");
-    timeScore = timeCount.textContent;
+    var timeScore = timeCount.textContent;
     if (userScore > 3){ 
         // Creating a new span tag and passing the user score number and total question number
         var scoreTag = '<span>Congratulations! You got '+ userScore +' out of '+ questions.length +'</span>' +'<span>Your time score is '+ timeScore +'</span>';
