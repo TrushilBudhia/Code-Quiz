@@ -97,7 +97,7 @@ function renderHighscores() {
     // Sorting the highscore scores from highest to lowest 
     highscoresSort = highscores.sort((a, b) => b.score - a.score);
     highscoreList.innerHTML = "";
-    for (var i = 0; i < highscoresSort.length; i++) {
+    for (i = 0; i < highscoresSort.length; i++) {
         var highscore = highscoresSort[i].score + " - " + highscoresSort[i].initials;
         var listItem = document.createElement("li");
         listItem.textContent = highscore;
